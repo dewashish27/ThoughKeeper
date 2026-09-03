@@ -56,7 +56,7 @@ export default function LoginPage() {
       // --------------------------------
 
       const response = await fetch(
-        "http://127.0.0.1:8000/auth/test",
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/test`,
         {
           method: "GET",
           headers: {
