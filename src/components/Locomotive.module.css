@@ -1,0 +1,90 @@
+.engineWrap,
+.carriageWrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+}
+
+.engineSvg,
+.carriageSvg {
+  display: block;
+  overflow: visible;
+}
+
+/* Cab window: dim by day, warmly lit by night — a small living detail */
+.window {
+  fill: #ffe9c4;
+  opacity: 0.45;
+  transition: opacity 1.4s ease, filter 1.4s ease;
+}
+
+.windowLit {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 217, 138, 0.85));
+}
+
+.headlamp {
+  fill: #ffd98a;
+  opacity: 0.85;
+  animation: lampFlicker 4.5s ease-in-out infinite;
+}
+
+@keyframes lampFlicker {
+  0%, 92%, 100% { opacity: 0.85; }
+  95% { opacity: 0.6; }
+}
+
+/* Smoke — three staggered puffs rising and dissolving from the chimney */
+.smokeGroup circle {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.puff1,
+.puff2,
+.puff3 {
+  animation: puffRise 3.2s ease-out infinite;
+}
+
+.puff2 { animation-delay: 1.05s; }
+.puff3 { animation-delay: 2.1s; }
+
+@keyframes puffRise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  20% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(6px, -34px) scale(2.4);
+  }
+}
+
+/* Carriage windows: unlit slots are just faint glass; lit ones represent a
+   thought captured that day — a quiet nod to "each carriage is a day". */
+.carWindow {
+  fill: #cfe6f2;
+  opacity: 0.5;
+  transition: fill 0.8s ease, opacity 0.8s ease;
+}
+
+.carWindowLit {
+  fill: #ffe9c4;
+  opacity: 1;
+  filter: drop-shadow(0 0 3px rgba(255, 217, 138, 0.7));
+}
+
+.carriageLabel {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  color: rgba(244, 239, 230, 0.4);
+  white-space: nowrap;
+}
