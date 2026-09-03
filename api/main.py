@@ -13,8 +13,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://thoughtkeeper-ebon.vercel.app",
-        "https://thoughtkeeper-h1ojrdsf-thought-keeper.vercel.app",
     ],
+    allow_origin_regex=r"https://thoughtkeeper-[a-z0-9]+-thought-keeper\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
